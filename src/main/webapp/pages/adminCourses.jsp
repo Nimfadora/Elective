@@ -43,7 +43,14 @@
             <td><c:out value="${course.name}"/></td>
             <td><c:out value="${course.duration}"/></td>
             <td id="<c:out value="${course.topicId}"/>"><c:out value="${course.topic}"/></td>
-            <td id="<c:out value="${course.tutorId}"/>"><c:out value="${course.tutor}"/></td>
+            <c:choose>
+              <c:when test="${course.tutorId == 0}">
+                <td id="-1">-</td>
+              </c:when>
+              <c:otherwise>
+                <td id="<c:out value="${course.tutorId}"/>"><c:out value="${course.tutor}"/></td>
+              </c:otherwise>
+            </c:choose>
             <td><c:out value="${course.status}"/></td>
           </tr>
         </c:forEach>

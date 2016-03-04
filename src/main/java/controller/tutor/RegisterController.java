@@ -1,4 +1,4 @@
-package controller;
+package controller.tutor;
 
 import model.Register;
 import service.impl.RegisterServiceImpl;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/tutor/register/*")
+@WebServlet("/tutor/register")
 public class RegisterController extends HttpServlet{
 
     @Override

@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Home</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".course-button").click(function (e) {
+                $.get("/tutor/register", { courseId: parseInt($(".courseId").val()) } );
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="logo-container">
@@ -15,23 +22,39 @@
     </div>
 </div>
 <div class="background-container">
-    <div class="text-center register-container">
-        <p class="header">Course name</p>
-        <div class="table-container">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Student Name</td>
-                    <td>Mark</td>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+    <div class="container tutor-page-conteiner">
+        <div class="panel panel-default home-page-panel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="span2"><img src="../img/man-tutor.gif" class="img-rounded avatar" alt="profile photo"></div>
+                    <div class="span4">
+                        <div style="width: 100%"><p class="profile-text">name</p></div>
+                        <div style="width: 100%"><p class="profile-text">email</p></div>
+                    </div>
+                </div>
+
+                <div class="row"><div class="text-center"><h3 class="profile-text">Courses</h3></div></div>
+
+                <hr/>
+                    <div class="panel panel-default home-page-panel">
+                        <div class="panel-body">
+                            <div class="status inprogress"></div>
+                        <div class="course-container">
+                            <p class="course-text">name</p>
+                            <p class="course-text">Students</p>
+                            <form action="/tutor" method="post" style="margin-bottom: 0; display: none">
+                                <input type="hidden" name="courseId" class="courseId" value="4">
+                            </form>
+                            <button type="button" class="course-button btn btn-info" >
+                                <span style="margin-right: 5px;">Register</span><span class="glyphicon glyphicon-th-list"></span>
+                            </button>
+                            <button class="course-button btn btn-info">More</button>
+                        </div>
+                    </div>
+            </div>
         </div>
-        <button type="button" class="btn btn-success">Save</button>
     </div>
+</div>
 </div>
 </body>
 </html>

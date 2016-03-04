@@ -1,4 +1,4 @@
-package controller;
+package controller.tutor;
 
 import model.Register;
 import service.impl.RegisterServiceImpl;

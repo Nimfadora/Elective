@@ -11,7 +11,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $(".course-button").click(function (e) {
-                $.get("/tutor/register/get", { courseId: parseInt($(".courseId").val()) } );
+                $(e.currentTarget).next("form").submit();
             });
         });
     </script>
@@ -23,7 +23,7 @@
     </div>
 </div>
     <div class="background-container">
-        <div class="container tutor-page-conteiner">
+        <div class="container tutor-page-container">
             <div class="panel panel-default home-page-panel">
                 <div class="panel-body">
                     <div class="row">
@@ -46,12 +46,12 @@
                                     <p class="course-text"><c:out value="${course.numOfStudents}"/> Students</p>
                                     <c:choose>
                                         <c:when test="${course.status == 'finished'}">
-                                            <%--<form action="/tutor" method="post" style="margin-bottom: 0;">--%>
-                                                <button type="button" class="course-button btn btn-info">
-                                                    <span style="margin-right: 5px;">Register</span><span class="glyphicon glyphicon-th-list"></span>
-                                                </button>
-                                                <input type="hidden" name="courseId" class="courseId" value="<c:out value="${course.id}"/> ">
-                                            <%--</form>--%>
+                                            <button type="button" class="course-button btn btn-info">
+                                                <span style="margin-right: 5px;">Register</span><span class="glyphicon glyphicon-th-list"></span>
+                                            </button>
+                                            <form id="forma" action="/tutor/register" method="get" hidden>
+                                                <input type="hidden" name="courseId" class="courseId" value="<c:out value="${course.id}"/>">
+                                            </form>
                                         </c:when>
                                     </c:choose>
                                     <button class="course-button btn btn-info">More</button>

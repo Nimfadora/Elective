@@ -39,14 +39,10 @@ body{
     min-width: 300px;
 }
 
-.logIn-panel{
-    margin-top: 50px;
-    border: 2px solid rgba(130, 131, 129, 0.88);
-}
+
 
 /*student*/
 
-/*.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover*/
 
 .student-logo-container{
     float: left;
@@ -91,7 +87,7 @@ body{
     height: 95vh;
 }
 
-.tutor-page-conteiner{
+.tutor-page-container{
     min-height: 95vh;
 }
 
@@ -146,11 +142,10 @@ body{
 }
 
 .register-container{
-    min-height: calc(100vh - 50px);
+    min-height: 95vh;
     background-color: white;
     width: 50%;
     margin: 0 25% 0 25%;
-    height: 100%;
 }
 .table-container{
     width: 70%;

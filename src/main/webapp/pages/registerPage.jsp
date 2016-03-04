@@ -30,9 +30,9 @@
                 <tbody>
                 <c:forEach items="${register}" var="record">
                     <tr>
-                        <td><c:out value="${record.id}"/></td>
+                        <td><c:out value="${record.studentId}"/></td>
                         <td><c:out value="${record.studentName}"/></td>
-                        <td><c:out value="${record.Mark}"/></td>
+                        <td><c:out value="${record.mark}"/></td>
                     </tr>
                 </c:forEach>
                 </tbody>
