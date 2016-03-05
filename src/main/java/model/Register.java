@@ -31,4 +31,5 @@ public class Register {
     public void setRecords(List<Record> records) {
         this.records = records;
     }
+
 }

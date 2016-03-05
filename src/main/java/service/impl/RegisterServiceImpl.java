@@ -6,8 +6,6 @@ import model.Record;
 import model.Register;
 import service.RegisterService;
 
-import java.util.List;
-
 public class RegisterServiceImpl implements RegisterService {
     private static RegisterDao dao = RegisterDaoImpl.getInstance();
     private static RegisterService service;
@@ -24,8 +22,8 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    public void putMark(Record record) {
-        dao.putMark(record);
+    public void updateRegister(Register register) {
+        dao.updateRegister(register);
     }
 
     @Override

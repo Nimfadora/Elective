@@ -46,14 +46,21 @@ public class RegisterDaoImpl implements RegisterDao {
     }
 
     @Override
-    public void putMark(Record record) {
+    public void updateRegister(Register register) {
         try {
             connection = ConnectionService.getConnection();
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(PUT_MARK);
-            statement.setInt(1, record.getMark());
-            statement.setLong(2, record.getStudentId());
-            statement.setLong(3, record.getCourseId());
-            statement.executeUpdate();
+
+            for (Record record : register.getRecords()) {
+                statement.setInt(1, record.getMark());
+                statement.setLong(2, record.getStudentId());
+                statement.setLong(3, record.getCourseId());
+                statement.addBatch();
+            }
+
+            statement.executeBatch();
+            connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {

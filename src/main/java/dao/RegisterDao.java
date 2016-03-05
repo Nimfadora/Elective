@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RegisterDao {
     void addStudent(Record record);
-    void putMark(Record record);
+    void updateRegister(Register register);
     Register getRegister(Long courseId);
     Record getMark(Record record);
 }

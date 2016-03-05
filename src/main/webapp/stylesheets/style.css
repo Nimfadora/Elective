@@ -8,8 +8,6 @@ body{
 }
 
 .background-container{
-    /*min-height: calc(100vh - 50px);*/
-    /*max-height: 950px;*/
     background: url("../img/login_background.jpg") fixed;
     background-size: cover;
     background-position: center center;
@@ -21,14 +19,14 @@ body{
 }
 
 .logo-container{
-    min-height: 5vh;
-    max-height: 50px;
+    min-height: 50px;
+    max-height: 5vh;
     background-color: rgba(26, 52, 59, 1);
 }
 
 .navbar{
-    min-height: 5vh;
-    max-height: 50px;
+    min-height: 50px;
+    max-height: 5vh;
     background-color: rgba(26, 52, 59, 1);
     margin: auto auto;
 }
@@ -51,6 +49,7 @@ body{
 
 .student-logo{
     height: 100%;
+    min-height: 50px;
 }
 
 #navbar{
@@ -154,4 +153,12 @@ body{
 .header{
     font-size: 20pt;
     padding-top: 20px;
+}
+
+/*search*/
+
+.sortFilterPanel{
+    width: 100vmin;
+    height: 200px;
+    background-color: #00b3ee;
 }
