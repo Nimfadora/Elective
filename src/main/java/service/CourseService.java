@@ -14,4 +14,5 @@ public interface CourseService {
     List<Course> getStartedCourses();
     void setTutor(Long courseId, Long tutorId);
     List<Course> getCoursesByTutor(Long tutorId);
+    List<Course> getCoursesByStudent(Long studentId);
 }

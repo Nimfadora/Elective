@@ -10,8 +10,18 @@ public class Course {
     private String tutor;
     private String status;
     private int numOfStudents;
+    private int mark;
 
     public Course(){}
+
+
+    public int getMark() {
+        return mark;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
 
     public int getNumOfStudents() {
         return numOfStudents;

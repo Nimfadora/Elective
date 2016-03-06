@@ -13,6 +13,28 @@
             $(".course-button").click(function (e) {
                 $(e.currentTarget).next("form").submit();
             });
+
+
+            $("#started").change(function() {
+                if(this.checked)
+                    $(".started").parents(".course-panel").hide();
+                else
+                    $(".started").parents(".course-panel").show();
+
+            });
+            $("#inprogress").change(function() {
+                if(this.checked)
+                    $(".inprogress").parents(".course-panel").show();
+                else
+                    $(".inprogress").parents(".course-panel").hide();
+            });
+            $("#finished").change(function() {
+                if(this.checked)
+                    $(".finished").parents(".course-panel").show();
+                else
+                    $(".finished").parents(".course-panel").hide();
+                });
+
         });
     </script>
 </head>
@@ -37,8 +59,17 @@
                     <div class="row"><div class="text-center"><h3 class="profile-text">Courses</h3></div></div>
 
                     <hr/>
+
+                    <div class="filter-panel text-center">
+                        <label class="checkbox-inline"><input type="checkbox" id="started" value="" checked>Started</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="inprogress" value="" checked>In progress</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="finished" value="" checked>Finished</label>
+                    </div>
+
+                    <hr/>
+
                     <c:forEach items="${courses}" var="course">
-                        <div class="panel panel-default home-page-panel">
+                        <div class="panel course-panel panel-default home-page-panel">
                             <div class="panel-body">
                                 <div class="status <c:out value="${course.status}"/>"></div>
                                 <div class="course-container">

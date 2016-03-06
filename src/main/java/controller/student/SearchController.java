@@ -3,6 +3,8 @@ package controller.student;
 import model.Record;
 import service.impl.CourseServiceImpl;
 import service.impl.RegisterServiceImpl;
+import service.impl.TopicService;
+import service.impl.TutorServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +18,9 @@ public class SearchController extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("courses", CourseServiceImpl.getInstance().getStartedCourses());
-        req.getRequestDispatcher("/pages/searchPaege.jsp").forward(req, resp);
+        req.setAttribute("topics", TopicService.getInstance().getAll());
+        req.setAttribute("tutors", TutorServiceImpl.getInstance().getAll());
+        req.getRequestDispatcher("/pages/searchPage.jsp").forward(req, resp);
     }
 
     @Override

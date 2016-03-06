@@ -1,6 +1,7 @@
 package dao;
 
 import model.Course;
+import model.SortFilterParams;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface CourseDao {
     List<Course> getStartedCourses();
     void setTutor(Long courseId, Long tutorId);
     List<Course> getCoursesByTutor(Long tutorId);
+    List<Course> getCoursesByStudent(Long studentId);
+    List<Course> getFilteredSortedCourses(SortFilterParams params);
 }

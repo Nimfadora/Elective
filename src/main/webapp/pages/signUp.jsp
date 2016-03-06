@@ -22,48 +22,33 @@
                             <div class="panel-title">Sign Up</div>
                         </div>
                         <div class="panel-body">
-                            <form id="signupform" action="/signUp/student" class="form-horizontal" role="form">
+                            <form id="signupform" action="/signUp/student" class="form-horizontal" method="post" role="form">
 
                                 <div id="signupalert" style="display:none" class="alert alert-danger">
                                     <p>Error:</p>
                                     <span></span>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="email" class="col-md-3 control-label">Email</label>
-
-                                    <div class="col-md-9">
-                                        <input type="text" id="email" class="form-control" name="email" placeholder="Email Address">
-                                    </div>
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input id="email" type="email" class="form-control" name="email" value="" placeholder="email">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="name" class="col-md-3 control-label">Full Name</label>
-
-                                    <div class="col-md-9">
-                                        <input type="text" id="name" class="form-control" name="name" placeholder="Full Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="col-md-3 control-label">Password</label>
-
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                                    </div>
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="name" type="text" class="form-control" name="name" placeholder="full name">
                                 </div>
 
-                                <!--<div class="form-group">-->
-                                <!--<label for="icode" class="col-md-3 control-label">Invitation Code</label>-->
-                                <!--<div class="col-md-9">-->
-                                <!--<input type="text" class="form-control" name="icode" placeholder="">-->
-                                <!--</div>-->
-                                <!--</div>-->
+                                <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input id="password" type="password" class="form-control" name="password" placeholder="password">
+                                </div>
 
-                                <div class="form-group">
+                                <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up
-                                        </button>
+
+                                    <div class="col-sm-12 controls">
+                                        <button id="signUp" type="submit" class="btn btn-info">Sign up</button>
                                     </div>
                                 </div>
 

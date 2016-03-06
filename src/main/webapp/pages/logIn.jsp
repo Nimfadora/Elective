@@ -33,8 +33,8 @@
                             <form id="loginform-s" class="form-horizontal" role="form" action="/login/student" method="post">
 
                                 <div style="margin-bottom: 25px" class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="login-s-username" type="text" class="form-control" name="email" value="" placeholder="email">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input id="login-s-username" type="email" class="form-control" name="email" value="" placeholder="email">
                                 </div>
 
                                 <div style="margin-bottom: 25px" class="input-group">
@@ -47,7 +47,7 @@
                                     <!-- Button -->
 
                                     <div class="col-sm-12 controls">
-                                        <button id="btn-s-login" type="submit" class="btn btn-success">Login  </button>
+                                        <button id="btn-s-login" type="submit" class="btn btn-success">Log in</button>
                                     </div>
                                 </div>
 
@@ -72,8 +72,8 @@
                             <form id="loginform-t" class="form-horizontal" role="form" action="/login/tutor" method="post">
 
                                 <div style="margin-bottom: 25px" class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="login-t-username" type="text" class="form-control" name="email" value="" placeholder="email">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input id="login-t-username" type="email" class="form-control" name="email" value="" placeholder="email">
                                 </div>
 
                                 <div style="margin-bottom: 25px" class="input-group">
@@ -86,7 +86,7 @@
                                     <!-- Button -->
 
                                     <div class="col-sm-12 controls">
-                                        <button id="btn-t-login" type="submit" class="btn btn-success">Login  </button>
+                                        <button id="btn-t-login" type="submit" class="btn btn-success">Log in</button>
                                     </div>
                                 </div>
                             </form>

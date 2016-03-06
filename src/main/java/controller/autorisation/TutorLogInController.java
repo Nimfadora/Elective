@@ -30,10 +30,6 @@ public class TutorLogInController extends HttpServlet {
             throw  new NullPointerException();
         req.getSession().setAttribute("user", tutor);
 
-        req.setAttribute("courses", CourseServiceImpl.getInstance().getCoursesByTutor(tutor.getId()));
-        req.setAttribute("tutor", TutorServiceImpl.getInstance().find(tutor.getId()));
-        req.getRequestDispatcher("/pages/tutorHome.jsp").forward(req, resp);
-
-
+        resp.sendRedirect("/tutor");
     }
 }

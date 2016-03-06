@@ -62,4 +62,9 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getCoursesByTutor(Long tutorId) {
         return dao.getCoursesByTutor(tutorId);
     }
+
+    @Override
+    public List<Course> getCoursesByStudent(Long studentId) {
+        return dao.getCoursesByStudent(studentId);
+    }
 }
