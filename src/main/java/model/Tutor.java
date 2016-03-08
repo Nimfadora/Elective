@@ -1,6 +1,8 @@
 package model;
 
-public class Tutor {
+import javax.jws.soap.SOAPBinding;
+
+public class Tutor extends User{
     private Long id;
     private String name;
     private String email;

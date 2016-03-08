@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/admin/courses")
+@WebServlet({"/admin/courses"})
 public class CoursesController extends HttpServlet {
 
     @Override

@@ -1,8 +1,11 @@
 package dao.Impl;
 
 import dao.TutorDao;
+import electiveException.EmailAlreadyExistsException;
+import electiveException.UserNotFoundException;
 import helper.Closer;
 import model.Tutor;
+import model.User;
 import service.impl.ConnectionService;
 
 import java.sql.*;
@@ -25,7 +28,6 @@ public class TutorDaoImpl implements TutorDao {
     private static final String CREATE = "INSERT INTO TUTOR(FULLNAME, EMAIL, PASSWORD)  VALUES ( ?, ?, ?)";
     private static final String READ = "SELECT * FROM TUTOR WHERE ID = ?";
     private static final String UPDATE = "UPDATE TUTOR SET FULLNAME = ?, EMAIL = ?, PASSWORD = ? WHERE ID = ?";
-    private static final String DELETE = "DELETE FROM TUTOR WHERE ID = ?";
     private static final String AUTHORISE = "SELECT ID FROM TUTOR WHERE EMAIL = ? AND PASSWORD = ?";
     private static final String GET_ALL = "SELECT * FROM TUTOR";
 
@@ -45,6 +47,7 @@ public class TutorDaoImpl implements TutorDao {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new EmailAlreadyExistsException();
         }finally {
             Closer.close(connection);
         }
@@ -91,21 +94,7 @@ public class TutorDaoImpl implements TutorDao {
     }
 
     @Override
-    public void delete(Long id) {
-        try {
-            connection = ConnectionService.getConnection();
-            statement = connection.prepareStatement(DELETE);
-            statement.setLong(1, id);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            Closer.close(connection);
-        }
-    }
-
-    @Override
-    public Tutor authorise(String email, String password) {
+    public User authorise(String email, String password) {
          Tutor tutor = null;
         try {
             connection = ConnectionService.getConnection();
@@ -117,8 +106,9 @@ public class TutorDaoImpl implements TutorDao {
                 tutor = new Tutor();
                 tutor.setId(rs.getLong(1));
                 tutor.setRole("tutor");
+            }else{
+                throw new UserNotFoundException();
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {

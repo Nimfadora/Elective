@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/signUp/student")
+@WebServlet({"/signUp/student"})
 public class StudentSignUpController extends HttpServlet {
 
     @Override
@@ -31,11 +31,8 @@ public class StudentSignUpController extends HttpServlet {
         student.setPassword(password);
         student.setName(name);
 //        student.setAge(age);
-        StudentService service = StudentServiceImpl.getInstance();
-        student.setId(service.create(student));
+        student.setId(StudentServiceImpl.getInstance().create(student));
 
-        req.getSession().setAttribute("user", student);
-
-        req.getRequestDispatcher("").forward(req, resp);
+        resp.sendRedirect("");
     }
 }

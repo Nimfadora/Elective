@@ -1,8 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<fmt:requestEncoding value="UTF-8" />
+<fmt:setLocale value="ru_RU" scope="session"/>
+<fmt:setBundle basename="i18n.locale" var="lang"/>
 <html>
 <head>
-    <title>Home</title>
+    <title><fmt:message key="HOME" bundle="${lang}"/></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
@@ -56,14 +60,14 @@
                         </div>
                     </div>
 
-                    <div class="row"><div class="text-center"><h3 class="profile-text">Courses</h3></div></div>
+                    <div class="row"><div class="text-center"><h3 class="profile-text"><fmt:message key="COURSES" bundle="${lang}"/></h3></div></div>
 
                     <hr/>
 
                     <div class="filter-panel text-center">
-                        <label class="checkbox-inline"><input type="checkbox" id="started" value="" checked>Started</label>
-                        <label class="checkbox-inline"><input type="checkbox" id="inprogress" value="" checked>In progress</label>
-                        <label class="checkbox-inline"><input type="checkbox" id="finished" value="" checked>Finished</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="started" value="" checked><fmt:message key="STARTED" bundle="${lang}"/></label>
+                        <label class="checkbox-inline"><input type="checkbox" id="inprogress" value="" checked><fmt:message key="IN_PROGRESS" bundle="${lang}"/></label>
+                        <label class="checkbox-inline"><input type="checkbox" id="finished" value="" checked><fmt:message key="FINISHED" bundle="${lang}"/></label>
                     </div>
 
                     <hr/>
@@ -74,18 +78,18 @@
                                 <div class="status <c:out value="${course.status}"/>"></div>
                                 <div class="course-container">
                                     <p class="course-text"><c:out value="${course.name}"/></p>
-                                    <p class="course-text"><c:out value="${course.numOfStudents}"/> Students</p>
+                                    <p class="course-text"><c:out value="${course.numOfStudents}"/> <fmt:message key="STUDENTS" bundle="${lang}"/></p>
                                     <c:choose>
                                         <c:when test="${course.status == 'finished'}">
                                             <button type="button" class="course-button btn btn-info">
-                                                <span style="margin-right: 5px;">Register</span><span class="glyphicon glyphicon-th-list"></span>
+                                                <span style="margin-right: 5px;"><fmt:message key="REGISTER" bundle="${lang}"/></span><span class="glyphicon glyphicon-th-list"></span>
                                             </button>
                                             <form id="forma" action="/tutor/register" method="get" hidden>
                                                 <input type="hidden" name="courseId" class="courseId" value="<c:out value="${course.id}"/>">
                                             </form>
                                         </c:when>
                                     </c:choose>
-                                    <button class="course-button btn btn-info">More</button>
+                                    <button class="course-button btn btn-info"><fmt:message key="MORE" bundle="${lang}"/></button>
                                 </div>
                             </div>
                         </div>

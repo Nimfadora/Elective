@@ -38,6 +38,8 @@ public class CourseDaoImpl implements CourseDao {
     private static final String GET_STARTED = "SELECT COURSE.ID, COURSE.NAME, COURSE.STATUS, COURSE.DURATION, TOPIC.TITLE, TUTOR.FULLNAME, COUNT(REGISTER.STUDENT_ID) FROM COURSE LEFT JOIN REGISTER ON(REGISTER.COURSE_ID = COURSE.ID) JOIN TUTOR ON(COURSE.TUTOR_ID = TUTOR.ID) JOIN TOPIC ON(COURSE.TOPIC_ID = TOPIC.ID) WHERE STATUS = 'started' GROUP BY REGISTER.COURSE_ID, COURSE.ID, COURSE.NAME, COURSE.STATUS, COURSE.DURATION, TOPIC.TITLE, TUTOR.FULLNAME";
     private static final String GET_COURSES_BY_TUTOR = "SELECT COURSE.ID, COURSE.NAME, COURSE.STATUS, COUNT(REGISTER.STUDENT_ID) FROM COURSE, TUTOR, REGISTER WHERE COURSE.TUTOR_ID = TUTOR.ID AND COURSE.ID = REGISTER.COURSE_ID AND COURSE.TUTOR_ID = ? GROUP BY REGISTER.COURSE_ID, COURSE.ID, COURSE.NAME, COURSE.STATUS";
     private static final String GET_COURSES_BY_STUDENT = "SELECT COURSE.ID, COURSE.NAME, COURSE.STATUS, TUTOR.FULLNAME, REGISTER.MARK FROM COURSE, REGISTER, TUTOR WHERE COURSE.ID = REGISTER.COURSE_ID AND COURSE.TUTOR_ID = TUTOR.ID AND REGISTER.STUDENT_ID = ? ORDER BY COURSE.STATUS";
+    private static final String CHECK_COURSE_TO_TUTOR = "SELECT COURSE.ID FROM COURSE, TUTOR WHERE COURSE.TUTOR_ID = TUTOR.ID AND COURSE.ID = ? AND TUTOR_ID = ?";
+
 
 
     @Override
@@ -315,5 +317,25 @@ public class CourseDaoImpl implements CourseDao {
             Closer.close(connection);
         }
         return courses;
+    }
+
+    @Override
+    public Boolean checkCourseToTutor(Long courseId, Long tutorId) {
+        Boolean check = false;
+        try {
+            connection = ConnectionService.getConnection();
+            statement = connection.prepareStatement(CHECK_COURSE_TO_TUTOR);
+            statement.setLong(1, courseId);
+            statement.setLong(2, tutorId);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                check = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Closer.close(connection);
+        }
+        return check;
     }
 }

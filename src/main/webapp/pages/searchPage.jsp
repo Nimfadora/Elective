@@ -1,8 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<fmt:requestEncoding value="UTF-8" />
+<fmt:setLocale value="ru_RU" scope="session"/>
+<fmt:setBundle basename="i18n.locale" var="lang"/>
 <html>
 <head>
-    <title>Search</title>
+    <title><fmt:message key="SEARCH" bundle="${lang}"/></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
@@ -27,11 +31,11 @@
     <div id="navbar">
         <div class="navbar-button">
             <span class="glyphicon glyphicon-home"></span>
-            <a href="/student">Home</a>
+            <a href="/student"><fmt:message key="HOME" bundle="${lang}"/></a>
         </div>
         <div class="navbar-button">
             <span class="glyphicon glyphicon-search"></span>
-            <a href="/student/search">Search</a>
+            <a href="/student/search"><fmt:message key="SEARCH" bundle="${lang}"/></a>
         </div>
     </div>
 </div>
@@ -41,20 +45,20 @@
             <div class="form-inline">
                 <form action="/student/sortFilter" method="get">
                     <div class="form-group">
-                        <label for="sort">Sort</label>
+                        <label for="sort"><fmt:message key="SORT" bundle="${lang}"/></label>
                         <input type="hidden" name="sortType" id="sortType">
                         <select class="form-control" id="sort">
                             <option id="no">-</option>
-                            <option id="nameAsc">a-z</option>
-                            <option id="nameDesc">z-a</option>
-                            <option id="durationAsc">duration ascending</option>
-                            <option id="durationDesc">duration descending</option>
-                            <option id="popularityDesc">popularity descending</option>
-                            <option id="popularityAsc">popularity ascending</option>
+                            <option id="nameAsc"><fmt:message key="A_Z" bundle="${lang}"/></option>
+                            <option id="nameDesc"><fmt:message key="Z_A" bundle="${lang}"/></option>
+                            <option id="durationAsc"><fmt:message key="DURATION_ASC" bundle="${lang}"/></option>
+                            <option id="durationDesc"><fmt:message key="DURATION_DESC" bundle="${lang}"/></option>
+                            <option id="popularityDesc"><fmt:message key="POPULARITY_ASC" bundle="${lang}"/></option>
+                            <option id="popularityAsc"><fmt:message key="POPULARITY_DESC" bundle="${lang}"/></option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="topic">Topic</label>
+                        <label for="topic"><fmt:message key="TOPIC" bundle="${lang}"/></label>
                         <input type="hidden" name="topicId" id="topicId">
                         <select class="form-control" id="topic">
                             <option id="-1">-</option>
@@ -64,7 +68,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="tutor">Tutor</label>
+                        <label for="tutor"><fmt:message key="TUTOR" bundle="${lang}"/></label>
                         <input type="hidden" name="tutorId" id="tutorId">
                         <select class="form-control" id="tutor">
                             <option id="-1">-</option>
@@ -73,7 +77,7 @@
                             </c:forEach>
                         </select>
                     </div>
-                    <button type="button" id="apply" class="btn btn-success">Apply</button>
+                    <button type="button" id="apply" class="btn btn-success"><fmt:message key="APPLY" bundle="${lang}"/></button>
                 </form>
             </div>
         </div>
@@ -89,8 +93,8 @@
                             <p class="course-text"><c:out value="${course.tutor}"/></p>
 
                             <p class="course-text"><c:out value="${course.duration}"/></p>
-                            <button class="course-button btn btn-success">Enroll</button>
-                            <button class="course-button btn btn-info">More</button>
+                            <button class="course-button btn btn-success"><fmt:message key="ENROLL" bundle="${lang}"/></button>
+                            <button class="course-button btn btn-info"><fmt:message key="MORE" bundle="${lang}"/></button>
                         </div>
                     </div>
                 </div>

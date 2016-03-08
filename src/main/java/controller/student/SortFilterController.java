@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/student/sortFilter")
+@WebServlet({"/student/sortFilter"})
 public class SortFilterController extends HttpServlet{
 
     @Override

@@ -1,8 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:requestEncoding value="UTF-8" />
+<fmt:setLocale value="ru_RU" scope="session"/>
+<fmt:setBundle basename="i18n.locale" var="lang"/>
 <html>
 <head>
-    <title>Register</title>
+    <title><fmt:message key="REGISTER" bundle="${lang}"/></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
@@ -61,9 +65,9 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>Student Name</td>
-                    <td>Mark</td>
+                    <td><fmt:message key="STUDENT_ID" bundle="${lang}"/></td>
+                    <td><fmt:message key="STUDENT_NAME" bundle="${lang}"/></td>
+                    <td><fmt:message key="MARK" bundle="${lang}"/></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -77,7 +81,7 @@
                 </tbody>
             </table>
         </div>
-        <button type="button" id="save" class="btn btn-success">Save</button>
+        <button type="button" id="save" class="btn btn-success"><fmt:message key="SAVE" bundle="${lang}"/></button>
     </div>
 </div>
 </body>

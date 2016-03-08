@@ -90,6 +90,7 @@ body{
     min-height: 95vh;
 }
 
+
 /*profile*/
 .avatar{
     min-width: 256px;
@@ -179,4 +180,9 @@ body{
     vertical-align: middle;
     padding: 5px;
     background-color: white;
+}
+
+.student-page-container{
+    min-height: calc(100vh - 70px);
+    height: 100%;
 }

@@ -3,6 +3,7 @@ package service.impl;
 import dao.Impl.TutorDaoImpl;
 import dao.TutorDao;
 import model.Tutor;
+import model.User;
 import service.TutorService;
 
 import java.util.List;
@@ -28,17 +29,12 @@ public class TutorServiceImpl implements TutorService {
     }
 
     @Override
-    public void delete(Long id) {
-        dao.delete(id);
-    }
-
-    @Override
     public void update(Tutor user) {
         dao.update(user);
     }
 
     @Override
-    public Tutor authorise(String email, String password) {
+    public User authorise(String email, String password) {
         return dao.authorise(email, password);
     }
 

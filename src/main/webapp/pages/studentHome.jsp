@@ -1,8 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<fmt:requestEncoding value="UTF-8" />
+<fmt:setLocale value="ru_RU" scope="session"/>
+<fmt:setBundle basename="i18n.locale" var="lang"/>
 <html>
 <head>
-    <title>Home</title>
+    <title><fmt:message key="HOME" bundle="${lang}"/></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
@@ -40,17 +44,17 @@
     <div id="navbar">
         <div class="navbar-button">
             <span class="glyphicon glyphicon-home"></span>
-            <a href="/student">Home</a>
+            <a href="/student"><fmt:message key="HOME" bundle="${lang}"/></a>
         </div>
         <div class="navbar-button">
             <span class="glyphicon glyphicon-search"></span>
-            <a href="/student/search">Search</a>
+            <a href="/student/search"><fmt:message key="SEARCH" bundle="${lang}"/></a>
         </div>
     </div>
 </div>
 <div class="background-container">
     <div class="container tutor-page-conteiner">
-        <div class="panel panel-default home-page-panel">
+        <div class="panel panel-default home-page-panel student-page-container">
             <div class="panel-body">
                 <div class="row">
                     <div class="span2"><img src="../img/student.png" class="img-rounded avatar" alt="profile photo">
@@ -63,15 +67,15 @@
                 </div>
 
                 <div class="row">
-                    <div class="text-center"><h3 class="profile-text">Courses</h3></div>
+                    <div class="text-center"><h3 class="profile-text"><fmt:message key="COURSES" bundle="${lang}"/></h3></div>
                 </div>
 
                 <hr/>
 
                 <div class="filter-panel text-center">
-                    <label class="checkbox-inline"><input type="checkbox" id="started" value="" checked>Started</label>
-                    <label class="checkbox-inline"><input type="checkbox" id="inprogress" value="" checked>In progress</label>
-                    <label class="checkbox-inline"><input type="checkbox" id="finished" value="" checked>Finished</label>
+                    <label class="checkbox-inline"><input type="checkbox" id="started" value="" checked><fmt:message key="STARTED" bundle="${lang}"/></label>
+                    <label class="checkbox-inline"><input type="checkbox" id="inprogress" value="" checked><fmt:message key="IN_PROGRESS" bundle="${lang}"/></label>
+                    <label class="checkbox-inline"><input type="checkbox" id="finished" value="" checked><fmt:message key="FINISHED" bundle="${lang}"/></label>
                 </div>
 
                 <hr/>
@@ -86,10 +90,10 @@
                                 <p class="course-text"><c:out value="${course.tutor}"/></p>
                                 <c:choose>
                                     <c:when test="${course.mark != null}">
-                                        <p class="course-text">Mark:<c:out value="${course.mark}"/></p>
+                                        <p class="course-text"><fmt:message key="MARK" bundle="${lang}"/>:<c:out value="${course.mark}"/></p>
                                     </c:when>
                                 </c:choose>
-                                <button class="course-button btn btn-info">More</button>
+                                <button class="course-button btn btn-info"><fmt:message key="MORE" bundle="${lang}"/></button>
                             </div>
                         </div>
                     </div>

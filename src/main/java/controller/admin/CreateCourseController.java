@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/admin/courses/create")
+@WebServlet({"/admin/courses/create"})
 public class CreateCourseController extends HttpServlet {
 
     @Override

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/admin/courses/delete")
+@WebServlet({"/admin/courses/delete"})
 public class DeleteCourseController extends HttpServlet{
 
     @Override

@@ -2,6 +2,7 @@ package controller.autorisation;
 
 import helper.Params;
 import model.Student;
+import model.User;
 import service.StudentService;
 import service.impl.StudentServiceImpl;
 
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/login/student")
+@WebServlet({"/login/student"})
 public class StudentLogInController extends HttpServlet {
 
     @Override
@@ -20,12 +21,12 @@ public class StudentLogInController extends HttpServlet {
         String email= req.getParameter("email");
         String password = req.getParameter("password");
 
-        Student student = StudentServiceImpl.getInstance().authorise(email, password);
+        User user = StudentServiceImpl.getInstance().authorise(email, password);
 
-        if(student == null)
+        if(user == null)
             throw  new NullPointerException();
 
-        req.getSession().setAttribute("user", student);
+        req.getSession().setAttribute("user", user);
 
         resp.sendRedirect("/student");
     }

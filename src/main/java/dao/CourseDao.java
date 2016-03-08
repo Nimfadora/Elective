@@ -17,4 +17,5 @@ public interface CourseDao {
     List<Course> getCoursesByTutor(Long tutorId);
     List<Course> getCoursesByStudent(Long studentId);
     List<Course> getFilteredSortedCourses(SortFilterParams params);
+    Boolean checkCourseToTutor(Long courseId, Long tutorId);
 }

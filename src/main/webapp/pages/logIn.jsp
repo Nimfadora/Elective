@@ -1,7 +1,14 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"--%>
+         <%--pageEncoding="ISO-8859-1"%>--%>
+<fmt:requestEncoding value="UTF-8" />
+<fmt:setLocale value="ru_RU" scope="session"/>
+<fmt:setBundle basename="i18n.locale" var="lang"/>
 <html>
 <head>
-    <title>Log in</title>
+    <title><fmt:message key="LOGIN_TITLE" bundle="${lang}"/></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../stylesheets/style.css">
@@ -19,11 +26,11 @@
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info logIn-panel" >
                 <div class="panel-heading">
-                    <div class="panel-title">Log In</div>
+                    <div class="panel-title"><fmt:message key="LOGIN_TITLE" bundle="${lang}"/></div>
                 </div>
                 <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#student">Student</a></li>
-                    <li><a data-toggle="tab" href="#tutor">Tutor</a></li>
+                    <li class="active"><a data-toggle="tab" href="#student"><fmt:message key="STUDENT" bundle="${lang}"/></a></li>
+                    <li><a data-toggle="tab" href="#tutor"><fmt:message key="TUTOR" bundle="${lang}"/></a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="student" class="tab-pane fade in active">
@@ -34,12 +41,12 @@
 
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                    <input id="login-s-username" type="email" class="form-control" name="email" value="" placeholder="email">
+                                    <input id="login-s-username" type="email" class="form-control" name="email" value="" placeholder="<fmt:message key="EMAIL" bundle="${lang}"/>">
                                 </div>
 
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input id="login-s-password" type="password" class="form-control" name="password" placeholder="password">
+                                    <input id="login-s-password" type="password" class="form-control" name="password" placeholder="<fmt:message key="PASSWORD" bundle="${lang}"/>">
                                 </div>
 
 
@@ -47,7 +54,7 @@
                                     <!-- Button -->
 
                                     <div class="col-sm-12 controls">
-                                        <button id="btn-s-login" type="submit" class="btn btn-success">Log in</button>
+                                        <button id="btn-s-login" type="submit" class="btn btn-success"><fmt:message key="LOGIN_VERB" bundle="${lang}"/></button>
                                     </div>
                                 </div>
 
@@ -55,9 +62,9 @@
                                 <div class="form-group">
                                     <div class="col-md-12 control">
                                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                            Don't have an account?
+                                            <fmt:message key="HAVE_NO_ACCOUNT" bundle="${lang}"/>
                                             <a href="/signUp/student" >
-                                                Sign Up Here
+                                                <fmt:message key="SIGNUP_VERB" bundle="${lang}"/>
                                             </a>
                                         </div>
                                     </div>
@@ -73,12 +80,12 @@
 
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                    <input id="login-t-username" type="email" class="form-control" name="email" value="" placeholder="email">
+                                    <input id="login-t-username" type="email" class="form-control" name="email" value="" placeholder="<fmt:message key="EMAIL" bundle="${lang}"/>">
                                 </div>
 
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input id="login-t-password" type="password" class="form-control" name="password" placeholder="password">
+                                    <input id="login-t-password" type="password" class="form-control" name="password" placeholder="<fmt:message key="PASSWORD" bundle="${lang}"/>">
                                 </div>
 
 
@@ -86,7 +93,7 @@
                                     <!-- Button -->
 
                                     <div class="col-sm-12 controls">
-                                        <button id="btn-t-login" type="submit" class="btn btn-success">Log in</button>
+                                        <button id="btn-t-login" type="submit" class="btn btn-success"><fmt:message key="LOGIN_VERB" bundle="${lang}"/></button>
                                     </div>
                                 </div>
                             </form>

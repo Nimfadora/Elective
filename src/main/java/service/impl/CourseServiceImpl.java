@@ -67,4 +67,9 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getCoursesByStudent(Long studentId) {
         return dao.getCoursesByStudent(studentId);
     }
+
+    @Override
+    public Boolean checkCourseToTutor(Long courseId, Long tutorId) {
+        return dao.checkCourseToTutor(courseId, tutorId);
+    }
 }

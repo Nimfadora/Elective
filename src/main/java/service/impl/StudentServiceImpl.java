@@ -3,6 +3,7 @@ package service.impl;
 import dao.Impl.StudentDaoImpl;
 import dao.StudentDao;
 import model.Student;
+import model.User;
 import service.StudentService;
 
 import java.util.List;
@@ -29,17 +30,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void delete(Long id) {
-        dao.delete(id);
-    }
-
-    @Override
     public void update(Student student) {
         dao.update(student);
     }
 
     @Override
-    public Student authorise(String email, String password) {
+    public User authorise(String email, String password) {
         return dao.authorise(email, password);
     }
 
@@ -51,5 +47,10 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void changeBanStatus(Long id) {
         dao.changeBanStatus(id);
+    }
+
+    @Override
+    public Boolean getBanStatus(Long id) {
+        return dao.getBanStatus(id);
     }
 }

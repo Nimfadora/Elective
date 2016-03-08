@@ -15,4 +15,5 @@ public interface CourseService {
     void setTutor(Long courseId, Long tutorId);
     List<Course> getCoursesByTutor(Long tutorId);
     List<Course> getCoursesByStudent(Long studentId);
+    Boolean checkCourseToTutor(Long courseId, Long tutorId);
 }

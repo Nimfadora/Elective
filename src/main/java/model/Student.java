@@ -1,38 +1,11 @@
 package model;
 
 
-public class Student {
-    private Long id;
+public class Student extends User{
     private String name;
     private int age;
     private String email;
     private String password;
-    private String role;
-    private Boolean ban;
-
-
-    public Boolean getBan() {
-        return ban;
-    }
-
-    public void setBan(Boolean ban) {
-        this.ban = ban;
-    }
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -67,16 +40,5 @@ public class Student {
     }
 
     public Student() {
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }
